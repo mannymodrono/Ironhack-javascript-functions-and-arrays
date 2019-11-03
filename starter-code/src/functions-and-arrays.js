@@ -103,13 +103,14 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(words) {
-  words.forEach((element, i) => {
-    let repeats = words.indexOf(element);
-    if(repeats > 1){
-      words.splice(i, 1);
-      console.log(words)
+  let newArray = [];
+
+  words.forEach((word) => {
+    if (newArray.includes(word) === false) {
+      newArray.push(word);
     }
-  })
+  });
+  return newArray;
 }
 
 // Iteration #6: Find elements
@@ -123,6 +124,21 @@ const wordsFind = [
   'truth',
   'disobedience'
 ];
+
+function doesWordExist (words, wordToFind) {
+  let isFound = false;
+
+  if (words.length === 0) {
+    return isFound;
+  }
+
+  words.forEach((word) => {
+    if (wordToFind === word) {
+      isFound = true;
+    }
+  });
+  return isFound;
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -138,6 +154,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes (words, wordToFind) {
+  let numberOfTimes = 0;
+
+  words.forEach((word) => {
+    if (wordToFind === word) {
+      numberOfTimes ++;
+    }
+  });
+  return numberOfTimes;
+}
 
 // Iteration #8: Bonus
 
